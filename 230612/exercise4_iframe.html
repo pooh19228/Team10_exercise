@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- iframe 사용하기 -->
+    <header>마이 스토리...</header>
+
+    <nav>
+      <ol>
+        <li><a href="./exercise1.html" target="iframe">나는 누구?</a></li>
+        <li>
+          <a href="./exercise2.html" target="iframe">시맨틱태그 사용 이유</a>
+        </li>
+        <li>
+          <a href="./exercise3_login.html" target="iframe"
+            >로그인하면 페이지 이동</a
+          >
+        </li>
+        <li><a href="./exercise3_main.html" target="iframe">검색</a></li>
+      </ol>
+    </nav>
+    <main>
+      <iframe id="iframe" width="900" height="500" frameborder="0" style="border:1px solid black;"> </iframe>
+    </main>
+
+    <footer>
+      <h2>가자...</h2>
+    </footer>
+    <script>
+      const links = document.querySelectorAll("nav a");
+      const iframe = document.getElementById("iframe");
+
+      links.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const url = link.getAttribute("href");
+          iframe.src = url;
+        });
+      });
+    </script>
+  </body>
+</html>
